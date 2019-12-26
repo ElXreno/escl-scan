@@ -11,14 +11,8 @@ script:
   - cargo build --verbose --all
   - cargo test --verbose --all
 
-before_deploy:
-  - cargo build --release
-  - strip ./target/release/escl-scan
-
 deploy:
-  provider: releases
+  provider: cargo
   api_key: $OAUTH_KEY
-  file: "./target/release/escl-scan"
-  skip_cleanup: true
   on:
     tags: true
