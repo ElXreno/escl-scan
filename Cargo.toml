@@ -4,10 +4,6 @@
 name = "escl-scan"
 version = "0.1.0"
 authors = ["ElXreno <elxreno@gmail.com>"]
-exclude = [
-	".travis.yml",
-	"rpm/**/*"
-]
 include = [
 	"src/**/*",
 	"Cargo.toml",
