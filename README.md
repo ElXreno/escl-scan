@@ -28,4 +28,13 @@ ARGS:
 ```
 
 # Install
+### As binary:
+```
+cargo install escl-scan
+# by default installed at ~/.cargo/bin, you may add it to path:
+export PATH=$PATH:~/.cargo/bin
+escl-scan
+```
+
+### As package:
 Fedora [Copr](https://copr.fedorainfracloud.org/coprs/elxreno/escl-scan): `sudo dnf copr enable elxreno/escl-scan -y && sudo dnf install escl-scan`
