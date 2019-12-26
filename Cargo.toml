@@ -4,6 +4,9 @@
 name = "escl-scan"
 version = "0.1.0"
 authors = ["ElXreno <elxreno@gmail.com>"]
+description = """
+Utility for scanning with eSCL protocol writen in Rust
+"""
 edition = "2018"
 
 
@@ -32,3 +35,4 @@ reqwest = "0.9.24"
 serde = "1.0.104"
 serde_derive = "1.0.104"
 serde-xml-rs = "0.3.1"
+clap = "2.33.0"
