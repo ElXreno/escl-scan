@@ -5,7 +5,6 @@ extern crate serde_xml_rs;
 
 mod structs;
 
-use serde_xml_rs::{from_str, to_string};
 use std::fs::File;
 use std::io::copy;
 
@@ -18,7 +17,7 @@ fn main() {
             .text()
             .unwrap();
     let scanner_capabilities: structs::ScannerCapabilities =
-        from_str(&scanner_capabilities_response).unwrap();
+        serde_xml_rs::from_str(&scanner_capabilities_response).unwrap();
 
     let scan_settings: structs::ScanSettings = structs::ScanSettings {
         version: "2.6".to_string(),
@@ -35,7 +34,7 @@ fn main() {
         y_resolution: 75,
     };
 
-    let request_body = to_string(&scan_settings).unwrap();
+    let request_body = serde_xml_rs::to_string(&scan_settings).unwrap();
 
     let client = reqwest::Client::new();
 
