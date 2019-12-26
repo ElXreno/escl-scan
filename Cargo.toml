@@ -11,7 +11,7 @@ include = [
 ]
 repository = "https://github.com/ElXreno/escl-scan"
 readme = "README.md"
-license = "GPLv3"
+license = "GPL-3.0"
 keywords = [
     "escl",
     "scan"
