@@ -13,6 +13,6 @@ script:
 
 deploy:
   provider: cargo
-  api_key: $OAUTH_KEY
+  token: $OAUTH_KEY
   on:
     tags: true
