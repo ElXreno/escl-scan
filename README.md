@@ -28,6 +28,9 @@ ARGS:
 ```
 
 # Install
+### As package (recommend):
+Fedora [Copr](https://copr.fedorainfracloud.org/coprs/elxreno/escl-scan): `sudo dnf copr enable elxreno/escl-scan -y && sudo dnf install escl-scan`
+
 ### As binary:
 ```
 cargo install escl-scan
@@ -35,6 +38,3 @@ cargo install escl-scan
 export PATH=$PATH:~/.cargo/bin
 escl-scan
 ```
-
-### As package:
-Fedora [Copr](https://copr.fedorainfracloud.org/coprs/elxreno/escl-scan): `sudo dnf copr enable elxreno/escl-scan -y && sudo dnf install escl-scan`
