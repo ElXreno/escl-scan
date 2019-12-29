@@ -7,8 +7,8 @@ extern crate clap;
 extern crate scan;
 
 use clap::{App, AppSettings, Arg};
-use std::process::exit;
 use std::path::Path;
+use std::process::exit;
 
 fn main() {
     let matches = App::new(crate_name!())

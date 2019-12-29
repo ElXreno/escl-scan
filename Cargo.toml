@@ -2,6 +2,7 @@
 members = [
     "escl-scan",
     "escl-scan-cli",
+    "escl-scan-gui",
 ]
 
 # Profiles
