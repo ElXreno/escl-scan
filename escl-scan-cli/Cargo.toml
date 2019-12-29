@@ -17,4 +17,4 @@ edition = "2018"
 
 [dependencies]
 clap = "2.33.0"
-scan = { package="escl-scan", path="../escl-scan" }
+scan = { package="escl-scan", version = "0.1.1", path="../escl-scan" }
