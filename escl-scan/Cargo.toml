@@ -11,7 +11,7 @@ keywords = [
 ]
 categories = ["api-bindings"]
 description = """
-Library for scanning with eSCL protocol writen in Rust
+A library for scanning documents over LAN or Wi-Fi using eSCL protocol.
 """
 edition = "2018"
 
