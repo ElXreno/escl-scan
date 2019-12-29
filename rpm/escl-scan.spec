@@ -23,11 +23,16 @@ Utility for scanning with eSCL protocol writen in Rust.
 
 
 %build
+pushd %{name}-cli
 cargo build --release --locked
+popd
 
 
 %install
+pushd %{name}-cli
 cargo install --root=%{buildroot}%{_prefix} --path=. --locked
+popd
+
 rm -f %{buildroot}%{_prefix}/.crates.toml
 
 
