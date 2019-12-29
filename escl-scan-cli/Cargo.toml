@@ -1,0 +1,24 @@
+[package]
+name = "escl-scan-cli"
+version = "0.1.0"
+authors = ["ElXreno <elxreno@gmail.com>"]
+repository = "https://github.com/ElXreno/escl-scan"
+readme = "README.md"
+license = "GPL-3.0"
+keywords = [
+    "escl",
+    "scan"
+]
+categories = ["api-bindings"]
+description = """
+CLI for escl-scan
+"""
+edition = "2018"
+
+[[bin]]
+name = "escl-scan"
+path = "src/main.rs"
+
+[dependencies]
+clap = "2.33.0"
+scan = { package="escl-scan", path="../escl-scan" }
