@@ -7,12 +7,12 @@
 [![dependency status](https://deps.rs/repo/github/elxreno/escl-scan/status.svg)](https://deps.rs/repo/github/elxreno/escl-scan)
 
 ```
-escl-scan 0.1.0
+escl-scan-cli 0.1.1
 ElXreno <elxreno@gmail.com>
-Utility for scanning with eSCL protocol writen in Rust
+CLI for escl-scan
 
 USAGE:
-    escl-scan [FLAGS] [OPTIONS] <ip> <output file>
+    escl-scan-cli [FLAGS] [OPTIONS] <ip> <output file>
 
 FLAGS:
     -f, --force      Force scan and override output file
@@ -33,8 +33,8 @@ Fedora [Copr](https://copr.fedorainfracloud.org/coprs/elxreno/escl-scan): `sudo 
 
 ### As binary:
 ```
-cargo install escl-scan
+cargo install escl-scan-cli
 # by default installed at ~/.cargo/bin, you may add it to path:
 export PATH=$PATH:~/.cargo/bin
-escl-scan
+escl-scan-cli
 ```
