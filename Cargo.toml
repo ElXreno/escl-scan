@@ -1,27 +1,8 @@
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[package]
-name = "escl-scan"
-version = "0.1.0"
-authors = ["ElXreno <elxreno@gmail.com>"]
-include = [
-	"src/**/*",
-	"Cargo.toml",
-	"README.md"
+[workspace]
+members = [
+    "escl-scan",
+    "escl-scan-cli",
 ]
-repository = "https://github.com/ElXreno/escl-scan"
-readme = "README.md"
-license = "GPL-3.0"
-keywords = [
-    "escl",
-    "scan"
-]
-categories = ["command-line-utilities"]
-description = """
-Utility for scanning with eSCL protocol writen in Rust
-"""
-edition = "2018"
-
 
 # Profiles
 [profile.dev]
@@ -29,23 +10,14 @@ opt-level = 1
 overflow-checks = true
 debug-assertions = true
 panic = "abort"
-debug = false
 codegen-units = 8
 lto = false
 incremental = true
 
-
 [profile.release]
 opt-level = 3
+codegen-units = 1
 overflow-checks = false
 debug-assertions = false
 lto = true
 debug = false
-
-
-[dependencies]
-reqwest = "0.9.24"
-serde = "1.0.104"
-serde_derive = "1.0.104"
-serde-xml-rs = "0.3.1"
-clap = "2.33.0"
