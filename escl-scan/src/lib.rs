@@ -1,11 +1,10 @@
 extern crate reqwest;
 extern crate serde;
-extern crate serde_derive;
 extern crate serde_xml_rs;
 
 pub mod structs;
 
-use reqwest::Response;
+use reqwest::blocking::Response;
 use std::fs::File;
 use std::io::copy;
 
@@ -49,7 +48,7 @@ pub fn scan(scanner_base_path: &str, scan_resolution: i16, destination_file: &st
 
 pub fn get_scanner_capabilities(scanner_base_path: &str) -> structs::ScannerCapabilities {
     let scanner_capabilities_response =
-        reqwest::get(&format!("{}/ScannerCapabilities", scanner_base_path))
+        reqwest::blocking::get(&format!("{}/ScannerCapabilities", scanner_base_path))
             .unwrap()
             .text()
             .unwrap();
@@ -61,7 +60,7 @@ pub fn get_scanner_capabilities(scanner_base_path: &str) -> structs::ScannerCapa
 }
 
 pub fn get_scan_response(scanner_base_path: &str, request_body: String) -> Response {
-    let client = reqwest::Client::new();
+    let client = reqwest::blocking::Client::new();
 
     client
         .post(format!("{}/ScanJobs", &scanner_base_path).as_str())
@@ -76,6 +75,6 @@ pub fn get_scan_response(scanner_base_path: &str, request_body: String) -> Respo
 pub fn download_scan(download_url: &str, destination_file: &str) {
     let mut file = { File::create(destination_file).unwrap() };
 
-    let mut response = reqwest::get(download_url).unwrap();
+    let mut response = reqwest::blocking::get(download_url).unwrap();
     copy(&mut response, &mut file).unwrap();
 }
