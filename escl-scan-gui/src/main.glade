@@ -2,28 +2,79 @@
 <!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkListStore" id="dpi_list_store">
-    <columns>
-      <!-- column-name gint1 -->
-      <column type="gint"/>
-    </columns>
-    <data>
-      <row>
-        <col id="0">75</col>
-      </row>
-      <row>
-        <col id="0">150</col>
-      </row>
-      <row>
-        <col id="0">300</col>
-      </row>
-      <row>
-        <col id="0">600</col>
-      </row>
-      <row>
-        <col id="0">1200</col>
-      </row>
-    </data>
+  <object class="GtkMessageDialog" id="ip_is_empty_message_dialog">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Error</property>
+    <property name="resizable">False</property>
+    <property name="type_hint">dialog</property>
+    <property name="message_type">error</property>
+    <property name="buttons">close</property>
+    <property name="text">IP Address is empty!</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="homogeneous">True</property>
+            <property name="layout_style">end</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMessageDialog" id="scanning_progress_message_dialog">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Info</property>
+    <property name="type_hint">dialog</property>
+    <property name="text" translatable="yes">Scanning...</property>
+    <child>
+      <placeholder/>
+    </child>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can_focus">False</property>
+            <property name="homogeneous">True</property>
+            <property name="layout_style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSpinner">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="active">True</property>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
   </object>
   <object class="GtkApplicationWindow" id="window">
     <property name="can_focus">False</property>
@@ -131,16 +182,17 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBox" id="dpi_combo_box">
+                  <object class="GtkComboBoxText" id="dpi_combo_box">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="model">dpi_list_store</property>
-                    <child>
-                      <object class="GtkCellRendererText" id="dpi_combo_box_list"/>
-                      <attributes>
-                        <attribute name="text">0</attribute>
-                      </attributes>
-                    </child>
+                    <property name="active">2</property>
+                    <items>
+                      <item>75</item>
+                      <item>150</item>
+                      <item>300</item>
+                      <item>600</item>
+                      <item>1200</item>
+                    </items>
                   </object>
                   <packing>
                     <property name="expand">True</property>
