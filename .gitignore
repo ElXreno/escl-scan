@@ -1,4 +1,5 @@
 .idea
+.directory
 /target
 **/*.rs.bk
 output.jpg
