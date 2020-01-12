@@ -9,8 +9,8 @@ rust:
   - stable
 
 script:
-  - cargo build --verbose --all --locked
-  - cargo test --verbose --all --locked
+  - cargo build --verbose --locked
+  - cargo test --verbose --locked
 
 deploy:
   provider: cargo
