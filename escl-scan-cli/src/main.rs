@@ -19,7 +19,7 @@ fn main() {
                 .required(true),
         )
         .arg(
-            Arg::with_name("output file")
+            Arg::with_name("destination file")
                 .help("Destination file")
                 .index(2)
                 .required(true),
@@ -35,14 +35,14 @@ fn main() {
             Arg::with_name("force")
                 .short("f")
                 .long("force")
-                .help("Force scan and override output file"),
+                .help("Force scan and override destination file"),
         )
         .get_matches();
 
     let ip = matches.value_of("ip").unwrap();
     let scanner_base_path = format!("http://{}:80/eSCL", ip);
     let scan_resolution: i16 = matches.value_of("dpi").unwrap().parse().unwrap();
-    let destination_file = matches.value_of("output file").unwrap();
+    let destination_file = matches.value_of("destination file").unwrap();
 
     if !matches.is_present("force") && Path::new(destination_file).exists() {
         eprintln!("Output file exists! Exiting...");
