@@ -6,7 +6,6 @@ pub mod structs;
 
 use reqwest::blocking::Response;
 use std::fs::File;
-use std::io::copy;
 
 pub fn scan(scanner_base_path: &str, scan_resolution: i16, destination_file: &str) {
     println!("Getting scanner capabilities...");
@@ -75,6 +74,5 @@ pub fn get_scan_response(scanner_base_path: &str, request_body: String) -> Respo
 pub fn download_scan(download_url: &str, destination_file: &str) {
     let mut file = { File::create(destination_file).unwrap() };
 
-    let mut response = reqwest::blocking::get(download_url).unwrap();
-    copy(&mut response, &mut file).unwrap();
+    reqwest::blocking::get(download_url).unwrap().copy_to(&mut file).unwrap();
 }
