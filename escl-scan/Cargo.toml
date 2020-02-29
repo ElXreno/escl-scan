@@ -16,6 +16,6 @@ A library for scanning documents over LAN or Wi-Fi using eSCL protocol.
 edition = "2018"
 
 [dependencies]
-reqwest = { version = "0.10.2", features = ["blocking"] }
+reqwest = { version = "0.10.3", features = ["blocking"] }
 serde = { version = "1.0.104", features = ["derive"] }
 serde-xml-rs = "0.3.1"
