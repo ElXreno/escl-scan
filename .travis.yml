@@ -9,6 +9,7 @@ rust:
   - stable
 
 script:
+  - bash <(curl -s https://codecov.io/bash)
   - cargo build --verbose --locked --all-targets --all-features
   - cargo test --verbose --locked --all-targets --all-features
 
