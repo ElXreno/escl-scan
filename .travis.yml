@@ -6,7 +6,7 @@ before_cache:
   - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
 
 jobs:
-  exclude:
+  include:
     - rust: stable
     - rust: nightly
       env:
