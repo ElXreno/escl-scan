@@ -5,10 +5,6 @@ cache: cargo
 before_cache:
   - rm -rf "$TRAVIS_HOME/.cargo/registry/src"
 
-rust:
-  - stable
-  - nightly
-
 matrix:
   include:
     - rust: stable
