@@ -26,8 +26,8 @@ script:
   - cargo test --verbose $CARGO_OPTIONS
   - |
     if [ "$TRAVIS_RUST_VERSION" = "nightly" ] && [ -z "$TRAVIS_TAG" ]; then
-      find . -name "*.gc*" -print
-      zip -0 ccov.zip `find . -name "escl-scan*.gc*" -print`;
+      find . -name "escl_scan*.gc*" -print
+      zip -0 ccov.zip `find . -name "escl_scan*.gc*" -print`;
       ./grcov ccov.zip -s . -t lcov --llvm --branch --ignore-not-existing --ignore "/*" -o lcov.info;
       bash <(curl -s https://codecov.io/bash) -f lcov.info;
     fi
