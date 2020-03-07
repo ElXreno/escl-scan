@@ -8,14 +8,7 @@ before_cache:
 rust:
   - stable
 
-addons:
-  sonarcloud:
-    organization: "elxreno"
-    token:
-      secure: "GFL67Ro8Rixpg7n5OjBPzRVVoJi93vu1LvFMB8N8O852+1TFRUejSLe+pjCRKppEeCZrpq2jdzuTe5LscPytjfy5pW2JWvp2Bs70r8XwaSqrqgveK1Nid6Esqz6MCoEwPFB4xnTQ+LkkUdo/J6IVq/sUvHUA0a/PnV1ptym3obJewSP3vHb2vVO8HUPSR2SrPjfUcUcBfFzyM/k6rcNdcpFe7MHIS0Kden1pp8CSpsaoqY0NyA4fP+DR43Vdb3UQ9y/cgZONiLlZp2ZCCUjioi9JITq8cX+2O1DJlaQbrs86rDgEQXTMYi223LYUzIulY2bWKOHtUU12H4GtSXriujlFJtCKR2M65KnZzJntHwF7GIvTUTAwWYDKiVrCqJ9LCIGdZAHqfLC5fTM6nWTPnUgmRBuLjxW4UTqDPWFd7QXi/a3nmz+exnN3R+ZW82jbWjGV+LLkvddN0VtwnUQKArz2cAwzvcpjSBWH3nnr6bi3GRlmvSv69GlYE8GJY/O4whsMWjF66XUkEHd98TQVyHj7xu8G48XlrNCn2TUCVm2xGoHwKGZQ8qICdd6RtcmphUrFCeZEED6ODo55VFrtIFjL/yD3j3mZn2IJ7Zp7TZo3RHB64OGVd2eMLLAOCVVOnb4veM1VTw3dJrtb/cOKf/IAV7kKTiMjNoZOutTL/bk="
-
 script:
-  - sonar-scanner
   - cargo build --verbose --locked --all-targets --all-features
   - cargo test --verbose --locked --all-targets --all-features
 
