@@ -29,13 +29,21 @@ jobs:
       run: cargo build --release --verbose
 
     - name: Strip release
-      run: strip target/release/escl-scan-cli
+      run: |
+        strip target/release/escl-scan-cli
+        strip target/release/escl-scan-gui
 
     - name: Run tests
       run: cargo test --verbose
 
-    - name: Upload Artifacts
+    - name: Upload CLI Artifact
       uses: actions/upload-artifact@v1
       with:
         name: escl-scan-cli_rust-${{ matrix.rust }}-${{ matrix.os }}
         path: target/release/escl-scan-cli
+
+    - name: Upload GUI Artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: escl-scan-gui_rust-${{ matrix.rust }}-${{ matrix.os }}
+        path: target/release/escl-scan-gui
