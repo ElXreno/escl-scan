@@ -7,7 +7,7 @@
 ---
 
 ```
-escl-scan-cli 0.1.2
+escl-scan-cli 0.1.3
 ElXreno <elxreno@gmail.com>
 CLI for escl-scan
 

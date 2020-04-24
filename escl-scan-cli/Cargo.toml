@@ -1,6 +1,6 @@
 [package]
 name = "escl-scan-cli"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["ElXreno <elxreno@gmail.com>"]
 repository = "https://github.com/ElXreno/escl-scan"
 readme = "README.md"
