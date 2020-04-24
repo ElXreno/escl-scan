@@ -33,7 +33,7 @@ pushd %{name}-cli
 cargo install --root=%{buildroot}%{_prefix} --path=. --locked
 popd
 
-rm -f %{buildroot}%{_prefix}/.crates.toml
+rm -f %{buildroot}%{_prefix}/.crates*.*
 
 
 %files
