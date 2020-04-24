@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name:           escl-scan
-Version:        0.1.1
+Version:        0.1.2
 Release:        1%{?dist}
 Summary:        Utility for scanning with eSCL protocol writen in Rust
 
@@ -44,6 +44,9 @@ rm -f %{buildroot}%{_prefix}/.crates.toml
 
 
 %changelog
+* Fri Apr 24 2020 ElXreno <elxreno@gmail.com> - 0.1.2-1
+- Updated to version 0.1.2
+
 * Sun Dec 29 2019 ElXreno <elxreno@gmail.com> - 0.1.1-1
 - Updated to version 0.1.1
 

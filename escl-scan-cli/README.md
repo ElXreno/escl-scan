@@ -7,15 +7,15 @@
 ---
 
 ```
-escl-scan-cli 0.1.1
+escl-scan-cli 0.1.2
 ElXreno <elxreno@gmail.com>
 CLI for escl-scan
 
 USAGE:
-    escl-scan-cli [FLAGS] [OPTIONS] <ip> <output file>
+    escl-scan-cli [FLAGS] [OPTIONS] <ip> <destination file>
 
 FLAGS:
-    -f, --force      Force scan and override output file
+    -f, --force      Force scan and override destination file
     -h, --help       Prints help information
     -V, --version    Prints version information
 
@@ -23,8 +23,8 @@ OPTIONS:
     -d, --dpi <dpi>    Scan resolution [default: 75]
 
 ARGS:
-    <ip>             IP of scanner
-    <output file>    Destination file
+    <ip>                  IP of scanner
+    <destination file>    Destination file
 ```
 
 # Install
