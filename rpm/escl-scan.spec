@@ -5,7 +5,7 @@ Version:        0.1.1
 Release:        1%{?dist}
 Summary:        Utility for scanning with eSCL protocol writen in Rust
 
-License:        GPLv3
+License:        MPLv2.0
 URL:            https://github.com/ElXreno/escl-scan
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
