@@ -30,20 +30,15 @@ pub fn scan(scanner_base_path: &str, scan_resolution: i16, destination_file: &st
         y_resolution: scan_resolution,
     };
 
-    let request_body = serde_xml_rs::to_string(&scan_settings).unwrap();
+    let serialized = serde_xml_rs::to_string(&scan_settings).unwrap();
+    let request_body = set_xml_namespace(serialized);
 
     println!("Sending scan request with DPI {}...", scan_resolution);
     let scan_response = get_scan_response(scanner_base_path, request_body);
 
-    let download_url = format!(
-        "{}/NextDocument",
-        scan_response
-            .headers()
-            .get("location")
-            .unwrap()
-            .to_str()
-            .unwrap()
-    );
+    let error = format!("Scan request failed: {:?}", scan_response);
+    let location = scan_response.headers().get("location").expect(&error);
+    let download_url = format!("{}/NextDocument", location.to_str().unwrap());
 
     println!("Downloading output file to {}...", destination_file);
     download_scan(&download_url, destination_file);
@@ -62,15 +57,23 @@ pub fn get_scanner_capabilities(scanner_base_path: &str) -> structs::ScannerCapa
     scanner_capabilities
 }
 
-pub fn get_scan_response(scanner_base_path: &str, request_body: String) -> Response {
-    let client = reqwest::blocking::Client::new();
+// At time of writing, serde-xml-rs doesn't support setting XML attributes.
+// Tracking issue: https://github.com/RReverser/serde-xml-rs/issues/49
+pub fn set_xml_namespace(xml: String) -> String {
+    let xsi = "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"";
+    let pwg = "xmlns:pwg=\"http://www.pwg.org/schemas/2010/12/sm\"";
+    let escl = "xmlns:escl=\"http://schemas.hp.com/imaging/escl/2011/05/03\"";
 
-    client
+    xml.replace("<escl:ScanSettings>", &format!("<escl:ScanSettings {} {} {}>", xsi, pwg, escl))
+}
+
+pub fn get_scan_response(scanner_base_path: &str, request_body: String) -> Response {
+    reqwest::blocking::Client::builder()
+        .http1_title_case_headers() // Some printers respond 400 unless headers are title case.
+        .build()
+        .unwrap()
         .post(format!("{}/ScanJobs", &scanner_base_path).as_str())
-        .body(format!(
-            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>{}",
-            request_body
-        ))
+        .body(format!("<?xml version=\"1.0\" encoding=\"UTF-8\"?>{}", request_body))
         .send()
         .unwrap()
 }

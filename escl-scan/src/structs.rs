@@ -110,7 +110,7 @@ pub struct ScanRegion {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-#[serde(rename = "scan:ScanSettings")]
+#[serde(rename = "escl:ScanSettings")]
 pub struct ScanSettings {
     #[serde(rename = "pwg:Version")]
     pub version: String,
