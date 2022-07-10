@@ -1,25 +1,26 @@
 name: Rust
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-18.04]
+        os: [ubuntu-18.04, ubuntu-latest]
         rust: [stable, nightly]
 
     steps:
     - name: Set up a Rust toolchain
-      uses: hecrj/setup-rust-action@v1.3.1
+      uses: hecrj/setup-rust-action@v1.3.4
       with:
         rust-version: ${{ matrix.rust }}
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: Build
-      run: cargo build --verbose
 
     - name: Build release
       run: cargo build --release --verbose
