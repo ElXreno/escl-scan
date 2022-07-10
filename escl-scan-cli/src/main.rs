@@ -30,14 +30,14 @@ fn main() {
         )
         .arg(
             Arg::with_name("dpi")
-                .short("d")
+                .short('d')
                 .long("dpi")
                 .help("Scan resolution")
                 .default_value("75"),
         )
         .arg(
             Arg::with_name("force")
-                .short("f")
+                .short('f')
                 .long("force")
                 .help("Force scan and override destination file"),
         )
