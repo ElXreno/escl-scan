@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Set up a Rust toolchain
-      uses: hecrj/setup-rust-action@v1.3.1
+      uses: hecrj/setup-rust-action@v1.3.4
       with:
         rust-version: ${{ matrix.rust }}
     - name: Checkout
