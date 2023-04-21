@@ -1,5 +1,7 @@
 .idea
 .directory
 /target
+/result
+/.direnv
 **/*.rs.bk
 output.jpg
