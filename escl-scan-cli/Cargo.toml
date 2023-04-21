@@ -16,5 +16,5 @@ CLI for escl-scan
 edition = "2018"
 
 [dependencies]
-clap = { version = "3.2.8", features = ["cargo"] }
+clap = { version = "4.2.4", features = ["cargo"] }
 scan = { package="escl-scan", path="../escl-scan" }
